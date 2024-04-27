@@ -1,10 +1,6 @@
 spring:
   application:
     name: users-crud
-  datasource:
-    username: postgres
-    password: pswd
-    url: jdbc:postgresql://localhost:5432/users
   jpa:
     generate-ddl: true
 config:
