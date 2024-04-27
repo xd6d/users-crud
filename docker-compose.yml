@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/localdb
+      SPRING_DATASOURCE_USERNAME: localdb
+      SPRING_DATASOURCE_PASSWORD: localdb
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres_db
+    networks:
+      - users-crud-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 2
+  postgres_db:
+    image: postgres:16.0
+    environment:
+      POSTGRES_DB: localdb
+      POSTGRES_USER: localdb
+      POSTGRES_PASSWORD: localdb
+    ports:
+      - '5432:5432'
+    networks:
+      - users-crud-network
+    volumes:
+      - "postgres-volume:/var/lib/postgresql/data"
+
+volumes:
+  postgres-volume:
+
+networks:
+  users-crud-network:
+    name: users-crud-network
+    driver: bridge
