@@ -1,4 +1,4 @@
-package com.example.userscrud;
+package com.example.userscrud.config;
 
 import com.example.userscrud.validation.AdultValidator;
 import org.springframework.boot.test.context.TestConfiguration;

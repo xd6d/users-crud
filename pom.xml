@@ -15,10 +15,13 @@
     <description>users-crud</description>
     <properties>
         <java.version>17</java.version>
-        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <lombok.version>1.18.32</lombok.version>
+        <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
+        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <json-patch.version>1.13</json-patch.version>
         <simple-jndi.version>0.24.0</simple-jndi.version>
+        <testcontainers.version>1.19.7</testcontainers.version>
+        <spring-boot-testcontainers.version>3.2.5</spring-boot-testcontainers.version>
     </properties>
     <dependencies>
         <dependency>
@@ -55,7 +58,7 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>8.0.1.Final</version>
+            <version>${hibernate-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -66,6 +69,24 @@
             <groupId>com.github.java-json-tools</groupId>
             <artifactId>json-patch</artifactId>
             <version>${json-patch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-testcontainers</artifactId>
+            <version>${spring-boot-testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
