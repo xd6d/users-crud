@@ -7,8 +7,6 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-//@Import({TestConfig.class, TestContainerConfiguration.class})
 class AdultValidatorTest {
 
     private final int minAge = 18;
