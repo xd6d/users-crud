@@ -1,27 +1,19 @@
 package com.example.userscrud.validation;
 
-import com.example.userscrud.config.TestConfig;
-import com.example.userscrud.config.TestContainerConfiguration;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@Import({TestConfig.class, TestContainerConfiguration.class})
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+//@Import({TestConfig.class, TestContainerConfiguration.class})
 class AdultValidatorTest {
 
-    @Autowired
-    private AdultValidator validator;
+    private final int minAge = 18;
 
-    @Value("${config.age.min}")
-    private int minAge;
+    private final AdultValidator validator = new AdultValidator(minAge);
 
     @Test
     void ageAboveMinValidTest() {
