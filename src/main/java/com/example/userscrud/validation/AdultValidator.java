@@ -8,11 +8,14 @@ import java.time.LocalDate;
 
 public class AdultValidator implements ConstraintValidator<Adult, LocalDate> {
 
-    private final int minAge;
+    @Value("${config.age.min}")
+    private int minAge;
 
     public AdultValidator(@Value("${config.age.min}") int minAge) {
         this.minAge = minAge;
     }
+
+    public AdultValidator() {}
 
     @Override
     public boolean isValid(LocalDate value, ConstraintValidatorContext context) {
