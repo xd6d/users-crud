@@ -2,10 +2,14 @@ package com.example.userscrud.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdultValidator implements ConstraintValidator<Adult, LocalDate> {
 
     @Value("${config.age.min}")
